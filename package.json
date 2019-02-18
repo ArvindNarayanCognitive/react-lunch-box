@@ -1,16 +1,18 @@
 {
-  "name": "burger-builder",
+  "name": "pranaa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
-    "scss-lint": "sass-lint -vq src/**/*.scss",
     "build": "react-scripts build",
+    "style-lint": "stylelint '**/*.scss'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -24,8 +26,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "flow-bin": "^0.93.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
-    "sass-lint": "^1.12.1"
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }

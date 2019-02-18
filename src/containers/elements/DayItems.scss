@@ -1,0 +1,29 @@
+.DayItemCntnr {
+  padding: 15px 0;
+
+  h2 {
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 34px;
+    color: #00a24a;
+    margin-bottom: 40px;
+  }
+
+  .subDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    span.info {
+      color: #212121;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1.14px;
+      line-height: 20px;
+    }
+
+    .btn {
+      margin-right: 15px;
+    }
+  }
+}

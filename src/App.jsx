@@ -6,6 +6,8 @@ import Footer from './components/footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as type from './constants';
 
 class App extends React.Component {
 	render() {
@@ -22,6 +24,17 @@ class App extends React.Component {
 			</Router>
 		);
 	}
+
+	componentWillMount() {
+		this.props.setInit();
+	}
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+	setInit: () => dispatch({ type: type.SET_INIT })
+});
+
+export default connect(
+	null,
+	mapDispatchToProps
+)(App);

@@ -10,11 +10,19 @@ import { connect } from 'react-redux';
 import * as type from './constants';
 
 class App extends React.Component {
+	constructor() {
+		super();
+		this.toggleLang = this.toggleLang.bind(this);
+	}
+
 	render() {
 		return (
 			<Router>
 				<React.Fragment>
-					<Nav />
+					<Nav
+						toggleLang={this.toggleLang}
+						toggleState={this.props.appState.lang}
+					/>
 					<Switch>
 						<Route path="/" exact component={HomeLayout} />
 						<Route component={NoRoute} />
@@ -28,13 +36,26 @@ class App extends React.Component {
 	componentWillMount() {
 		this.props.setInit();
 	}
+
+	toggleLang() {
+		let tmpLan = this.props.appState.lang;
+		if (tmpLan === 'EN') {
+			this.props.setLangTh();
+		} else {
+			this.props.setLangEn();
+		}
+	}
 }
 
 const mapDispatchToProps = dispatch => ({
-	setInit: () => dispatch({ type: type.SET_INIT })
+	setInit: () => dispatch({ type: type.SET_INIT }),
+	setLangEn: () => dispatch({ type: type.SELECT_LANG_EN }),
+	setLangTh: () => dispatch({ type: type.SELECT_LANG_TH })
 });
 
+const mapStateToProps = state => ({ appState: state.app });
+
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(App);

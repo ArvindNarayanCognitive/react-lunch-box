@@ -27,3 +27,48 @@
     }
   }
 }
+
+.main-items,
+.side-items {
+  margin: 2em 0;
+  margin-bottom: 4em;
+
+  .title {
+    display: flex;
+    margin: .5em 0;
+
+    > * {
+      align-self: center;
+    }
+
+    span {
+      color: #212121;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 1.43px;
+      line-height: 25px;
+      margin-right: 2em;
+    }
+  }
+
+  hr {
+    flex: 1;
+    border: 1px solid #e1e1e1;
+  }
+}
+
+.dish.skeleton {
+  width: 270px;
+  height: 300px;
+  border: 1px solid #E3E3E3;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+}
+
+.dish-side.skeleton {
+  width: 270px;
+  height: 200px;
+  border: 1px solid #E3E3E3;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+}

@@ -12,6 +12,11 @@ h5,
   font-family: 'Montserrat', sans-serif;
 }
 
+div#root {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 span.logo {
   height: 51px;
   width: 140px;
@@ -41,11 +46,9 @@ span.logo {
 
 nav {
   height: 84px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  position: fixed;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   background-color: white;
-  z-index: 2;
 
   .container {
     height: 100%;
@@ -56,10 +59,21 @@ nav {
       margin-left: auto;
       display: flex;
       flex-flow: row nowrap;
+      flex: 1;
+      margin-left: 45px;
+
+      .min-ordr {
+        font-size: 13px;
+        letter-spacing: 0.93px;
+        line-height: 16px;
+        color: #212121;
+        align-self: center;
+        margin-right: auto;
+      }
 
       .link {
         align-self: center;
-        margin-left: 48px;
+        margin-left: 22px;
         font-size: 13px;
         letter-spacing: 0.93px;
         line-height: 16px;
@@ -76,13 +90,75 @@ nav {
         transition: 0.2s ease-in;
         display: flex;
 
-        > * {
+        >* {
           align-self: center;
         }
       }
     }
   }
 }
+
+// toggler
+
+.toggle input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+}
+
+.toggle {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #00A24A;
+  border-radius: 13px;
+  background-color: #F7F7F7;
+  min-height: 2em;
+  max-height: 2em;
+  box-shadow: 0 7px 8px 0 rgba(3, 104, 49, 0.22);
+}
+
+span.toggle-content {
+  font-size: 14px;
+  padding: 0.4rem 0.6rem;
+  line-height: 1;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  color: #333;
+}
+
+.toggle input[type="checkbox"]:checked~.toggle-en {
+  color: #fff;
+  border: 1px solid #00A24A;
+  border-radius: 12px;
+  background-color: #00A24A;
+}
+
+.toggle input[type="checkbox"]:checked~.toggle-th {
+  background-color: #F7F7F7;
+  color: #333;
+  border: 1px solid transparent;
+}
+
+span.toggle-content.toggle-th {
+  color: #fff;
+  width: 36px;
+  border: 1px solid #00A24A;
+  border-radius: 12px;
+  background-color: #00A24A;
+}
+
+span.lang-toggle {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 2em;
+  width: 76px;
+}
+
+// toggler end
 
 .container {
   padding-left: 0 !important;
@@ -142,4 +218,119 @@ span.footLink:nth-child(1) {
 footer {
   height: 389px;
   box-shadow: inset 0 1px 0 0 rgba(181, 181, 181, 0.83);
+}
+
+.skeleton {
+  background-color: #f1f1f1;
+  background-image: linear-gradient(90deg, #F4F4F4 20%, rgba(229, 229, 229, 0.8) 40%, #F4F4F4 60%);
+  animation: shine-skeleton 2s infinite ease-out;
+}
+
+@keyframes shine-skeleton {
+  0% {
+    background-position: -100px;
+  }
+
+  100% {
+    background-position: 140px;
+  }
+}
+
+// dish item
+
+.dish-item {
+  min-height: 334px;
+  max-height: 450px;
+  width: 270px;
+  border: 1px solid #E3E3E3;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+
+  .dishImg {
+    height: 263px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+  }
+
+  .dishImg.short {
+    height: 160px;
+  }
+
+  .dish-detail {
+    margin: 20px;
+
+    >* {
+      margin-bottom: 10px;
+    }
+
+    .dish-name {
+      font-size: 17px;
+      font-weight: bold;
+      line-height: 22px;
+      color: #212121;
+    }
+
+    .dish-subtitle {
+      font-size: 14px;
+      line-height: 18px;
+      color: #212121;
+    }
+
+    .detail-end {
+      display: flex;
+
+      .dish-price {
+        margin-right: auto;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 21px;
+        color: #292929;
+      }
+
+      .star {
+        height: 20px;
+        width: 20px;
+        background-color: tomato;
+        align-self: center;
+        margin-left: 10px;
+      }
+    }
+
+    .dish-subtitle,
+    .dish-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .dish-order-btn {
+    display: flex;
+    width: 268px;
+    height: 50px;
+    overflow: hidden;
+    border-top: 1px solid #E3E3E3;
+
+    >* {
+      min-width: 268px;
+      line-height: 18px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #525252;
+      letter-spacing: 0.78px;
+      display: flex;
+      justify-content: center;
+
+      >* {
+        align-self: center;
+      }
+
+      span.plus-icon {
+        font-size: 25px;
+        margin-right: .5em;
+      }
+    }
+  }
 }

@@ -3,7 +3,8 @@ import * as types from '../constants';
 const initState = {
 	dates: [],
 	active: {},
-	today: new Date()
+	today: new Date(),
+	dishes: []
 };
 
 const home = (state = initState, action) => {
@@ -32,6 +33,13 @@ const home = (state = initState, action) => {
 				active: buff[0].date,
 				today: buff[0].date
 			};
+
+
+		case types.GET_DISHES:
+			return {
+				...state,
+				dishes: action.data[0]
+			}
 
 		default:
 			return state
